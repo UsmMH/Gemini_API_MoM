@@ -90,7 +90,7 @@ Required JSON structure:
     "Any final decisions, conclusions, or results from the conversation."
   ],
   "next_steps": [
-    "Any explicit mentions of future actions or follow-ups."
+    "Any explicit mentions of future actions or follow-ups(Assignee or Assigned team)."
   ]
 }
 
@@ -135,3 +135,4 @@ def extract_text_from_docx(file) -> str:
         return "\n".join(p.text for p in doc.paragraphs if p.text.strip())
     except Exception:
         return ""
+
