@@ -90,7 +90,7 @@ Required JSON structure:
     "Any final decisions, conclusions, or results from the conversation."
   ],
   "next_steps": [
-    "Any explicit mentions of future actions or follow-ups(Assignee or Assigned team)."
+    "Any explicit mentions of future actions or follow-ups."
   ]
 }
 
@@ -99,7 +99,6 @@ Rules:
 - If a section has no relevant information (e.g., no decisions were made), use an empty list [].
 - Extract participant names and their roles if mentioned (e.g., "Cate (Material Science)").
 - Keep summaries and points concise and directly from the transcript.
-- Mention the Assignee or the assigned team between brackets after each point in "next steps", if not found write "TBD".
 - Do not invent or infer information not present in the text. Focus on what was actually said."""
 
     def _clean_minutes(self, minutes: Dict) -> Dict[str, Any]:
@@ -136,5 +135,6 @@ def extract_text_from_docx(file) -> str:
         return "\n".join(p.text for p in doc.paragraphs if p.text.strip())
     except Exception:
         return ""
+
 
 
